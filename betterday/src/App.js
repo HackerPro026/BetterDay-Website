@@ -16,7 +16,7 @@ class App extends Component {
     if(!firebase.apps.length)
       firebase.initializeApp(FIREBASE_CONFIG);
 
-    firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         // User is signed in.
         //Great.
@@ -43,7 +43,9 @@ class App extends Component {
               });
             }
             let data = doc.data();
+            
             this.setState({username: data.name});
+            
           });
           
         }, (e) => {
@@ -65,15 +67,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar />
+        <NavBar firebase={firebase}/>
+          
         <header className="App-header">
            Hello! How has your day been, {this.state.username}?
         </header>
-        <Button negative icon="fork" labelPosition="left" onClick={() => {
-          firebase.auth().signOut().then(() => {
-            window.location.reload();
-          });
-        }}>SIGN ME OUT I WANT OUT LET ME OUT AAH</Button>
+        
       </div>
     );
   }
