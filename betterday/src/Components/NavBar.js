@@ -33,6 +33,11 @@ export default class NavBar extends React.Component {
                 active={true}
                 color="green"
                 name="sign in"
+                onClick={
+                    () => {
+                        document.location.href = "/auth";
+                        }
+                    }
                 >
                     <Icon name="sign in" />
                 </Menu.Item>
