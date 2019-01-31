@@ -1,6 +1,6 @@
 import React from "react";
 import {Menu, Icon} from "semantic-ui-react";
-import user from "../App.js"
+import user from "../Home.js"
 
 export default class NavBar extends React.Component {
     constructor(props){

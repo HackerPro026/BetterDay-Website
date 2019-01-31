@@ -56,9 +56,7 @@ export default class Home extends React.Component {
     
 
     
-    //Instead of the line below, fetch from your database (preferably firebase)
-                                    //Here you would fetch the auth
-                                    //UID after you... authenticate
+
     
   }
 
