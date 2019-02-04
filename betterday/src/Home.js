@@ -19,6 +19,7 @@ export default class Home extends React.Component {
         // User is signed in.
         //Great.
         this.user = user;
+        this.setState({username: user.displayName});
       } else {
         var provider = new firebase.auth.GoogleAuthProvider();
         firebase.auth().signInWithPopup(provider).then((result) => {

@@ -15,6 +15,7 @@ export default class AuthPage extends React.Component{
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
+        console.log("Great! You're already signed in!");
         // User is signed in.
         //Great.
         this.user = user;
@@ -57,7 +58,7 @@ export default class AuthPage extends React.Component{
       <div>
         <NavBar firebase ={firebase}/>
         <header className="App-header">
-          kk cool
+          dis stuf
         </header>
       </div>
     );
