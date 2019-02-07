@@ -1,18 +1,14 @@
 import React from "react";
 import {Menu, Icon} from "semantic-ui-react";
-import user from "../Home.js"
 
 export default class NavBar extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {signedIn: false}
 
-        if(user){
-            this.state.signedIn = true
-        }else if(!user){
-            this.state.signedIn = false
-        }
-        }
+    //Don't USE STATE for this! Just have a prop passed in and change this.state.signedIn to this.props.signedIn
+    //I know you're gonna interperet this wrong, but you HAVE TO PASS IN A PROP
+    //      <NavBar signedIn={this.state.username != ""} />
+    //      There
+            //Good luck lol
+
     render(){
         const activeItem = window.location.pathname.replace(/[\\\/][^\\\/]*$/, '');
         return (
@@ -28,7 +24,7 @@ export default class NavBar extends React.Component {
                 >
                     Home
                 </Menu.Item>
-            {this.state.signedIn ? 
+            {this.props.signedIn ? 
             <Menu.Item
                 active={true}
                 color="red"
@@ -36,7 +32,7 @@ export default class NavBar extends React.Component {
                 onClick={
                     () => {
                         this.props.firebase.auth().signOut().then(() => {
-                            window.location.reload();
+                            this.setState({signedIn: false});
                         });
                     }
                 }
@@ -51,7 +47,7 @@ export default class NavBar extends React.Component {
                     onClick={
                         () => {
                             document.location.href = "/auth";
-                            }
+                        }
                     }
                 >
                     <Icon name="sign in" />
