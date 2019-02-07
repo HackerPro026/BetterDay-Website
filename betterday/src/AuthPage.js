@@ -31,7 +31,12 @@ export default class AuthPage extends React.Component{
       <div>
         <NavBar firebase ={firebase}/>
         <header className="App-header">
-          <Button size="massive" positive content="SIGN IN WITH GOOGLE" onClick={() => {
+          <h1>
+            <p>
+              Sign In:
+            </p>
+          </h1>
+          <Button size="massive" icon="google" labelPosition="left" content="Sign in with Google" color="google plus" onClick={() => {
             firebase.auth().onAuthStateChanged((user) => {
               if (user) {
                 console.log("Great! You're already signed in!");

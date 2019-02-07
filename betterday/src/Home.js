@@ -29,7 +29,9 @@ export default class Home extends React.Component {
 
       if(this.state.loading){
         return (
-          <h1>I am loading be patient jeez you ungrateful b@(^(*^%#%))</h1>
+          <header className="App-header">
+            <h1>Have a nice day</h1>
+          </header>
         );
       }
 
@@ -37,7 +39,9 @@ export default class Home extends React.Component {
         return (
           <div>
             <NavBar firebase={firebase} signedIn={this.state.signedIn}/>
-            <h1>Go sign in right now, you obstinent a3%)^*#^@)#*^</h1>
+            <header className="App-header">
+              <h1>Please sign in to access our website.</h1>
+            </header>
           </div>
         );
       }
