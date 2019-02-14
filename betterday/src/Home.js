@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import firebase from 'firebase';
 import {FIREBASE_CONFIG} from "./Components/Firebase/const";
-import {Button} from "semantic-ui-react";
+import {Button, Dropdown,Popup,Input} from "semantic-ui-react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 
@@ -49,9 +49,33 @@ export default class Home extends React.Component {
       return (
         <div>
           <NavBar firebase={firebase} signedIn={this.state.signedIn}/>
-            
           <header className="App-header">
-             Hello! How has your day been, {this.state.username}?
+            
+             <p>Hello! How has your day been, {this.state.username}?</p>
+             <Button.Group>
+              <Button positive>Good</Button>
+              <Button.Or />
+              <Button negative>Bad</Button>
+              <Button.Or />
+              <Popup
+                trigger={<Button>Custom...</Button>}
+                content={
+                  <div style=
+                      {
+                        {
+                          textAlign:'center'
+                        }
+                      }
+                    >
+                    <p>How is your day? </p> 
+                    <Input />
+                  </div>
+                }
+                on='click'
+                position="bottom center"
+              />
+            </Button.Group>
+
           </header>
           
         </div>
