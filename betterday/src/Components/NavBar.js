@@ -32,7 +32,7 @@ export default class NavBar extends React.Component {
                 onClick={
                     () => {
                         this.props.firebase.auth().signOut().then(() => {
-                            this.setState({signedIn: false});
+                            window.location.href = "";
                         });
                     }
                 }
@@ -55,7 +55,7 @@ export default class NavBar extends React.Component {
                        
 
                   
-                }
+            }
             </Menu>
         );
     }
