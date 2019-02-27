@@ -19,6 +19,7 @@ export default class Home extends React.Component {
     
     firebase.auth().onAuthStateChanged((user) => {
       if(user){
+        this.db = firebase.firestore();
         this.setState({username: user.displayName, loading: false});
       }else{
         
@@ -41,7 +42,11 @@ export default class Home extends React.Component {
 
       if(this.state.loading){
         return (
-          <header className="App-header">
+          <header className="App-header" style={{
+            display: "flex",
+             flexDirection: "column",
+             alignItems: "center",
+             justifyContent: "center"}}>
             <h1>Have a nice day</h1>
           </header>
         );
@@ -52,7 +57,11 @@ export default class Home extends React.Component {
         return (
           <div>
             <NavBar firebase={firebase} signedIn={false}/>
-            <header className="App-header">
+            <header className="App-header" style={{
+            display: "flex",
+             flexDirection: "column",
+             alignItems: "center",
+             justifyContent: "center"}}>
               <h1>Please sign in to access our website.</h1>
             </header>
           </div>
@@ -71,8 +80,13 @@ export default class Home extends React.Component {
           {/* MAKE  DROPDOWN WITH 1-10 FOR YOUR DAY*/}
           <NavBar firebase={firebase} signedIn={true}/>
           <header className="App-header">
-            
-             <p>Hello! How has your day been, {this.state.username}?</p>
+            <br /> <br /> <br /> <br /> <br />
+             <p style={{
+               display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center"
+              }}>Hello! How has your day been, {this.state.username}?</p>
              {/* <Button.Group>
               <Button positive 
               onClick={
@@ -111,11 +125,11 @@ export default class Home extends React.Component {
             </Button.Group> */}
             
             <br />
-            </header>
+            
             <Grid padded>
             <Grid.Column width={100} >
           <Segment inverted>
-           <h1>(Bad)1-10(Good)</h1>
+           <h1 style={{textAlign: "center"}}>(Bad)1-10(Good)</h1>
             <p>
               <Slider style={{width:"100%"}}color="teal" inverted={true}
                 settings={{
@@ -126,6 +140,21 @@ export default class Home extends React.Component {
                 onChange: (value) => {
                   this.setState({
                     value1:value
+                  });
+                  /*
+                  1. Fetch previous statuses with db.collection.doc( blah blah ).get()
+                  2. With that data, add a new entry to the array
+                  3. Use db.collection.doc( blah blah ).update to set the value to the new array
+                  */
+                 db.collection("users").doc("GaTmbQEJEughsBZhCCxtnYWqKmo1").get({
+                    
+                })
+                  db.collection("users").doc("GaTmbQEJEughsBZhCCxtnYWqKmo1").update({
+                    
+                  }).then(() => {
+                    console.log("Yay we did it");
+                  }, (e) => {
+                    console.error(e);
                   })
                 }
               }}/>
@@ -135,7 +164,7 @@ export default class Home extends React.Component {
           </Grid.Column>
           </Grid>
           
-          
+          </header>
         </div>
       );
     }

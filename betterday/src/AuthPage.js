@@ -48,14 +48,12 @@ export default class AuthPage extends React.Component{
                   this.user = result.user;
                   
                   this.db = firebase.firestore();
-                  this.db.settings({
-                    timestampsInSnapshots: true
-                  });
         
                   this.db.collection("users").doc(this.user.uid).get().then((doc) => {
                     if(!doc.exists){
                       this.db.collection("users").doc(this.user.uid).set({
-                        name: this.user.displayName
+                        name: this.user.displayName,
+                        statuses: []
                       }).then(() => {
                         console.log("Created account for " + this.user.displayName);
                         this.redirectToDest();

@@ -10,7 +10,6 @@ import Home from "./Home";
 import AuthPage from "./AuthPage";
 
 class App extends Component {
-
   render() {
     return (
       <Router>
