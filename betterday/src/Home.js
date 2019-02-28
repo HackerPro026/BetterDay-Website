@@ -19,6 +19,7 @@ export default class Home extends React.Component {
     
     firebase.auth().onAuthStateChanged((user) => {
       if(user){
+        this.user = user;
         this.db = firebase.firestore();
         this.setState({username: user.displayName, loading: false});
       }else{
@@ -141,29 +142,37 @@ export default class Home extends React.Component {
                   this.setState({
                     value1:value
                   });
-                  /*
-                  1. Fetch previous statuses with db.collection.doc( blah blah ).get()
-                  2. With that data, add a new entry to the array
-                  3. Use db.collection.doc( blah blah ).update to set the value to the new array
-                  */
-                 db.collection("users").doc("GaTmbQEJEughsBZhCCxtnYWqKmo1").get({
-                    
-                })
-                  db.collection("users").doc("GaTmbQEJEughsBZhCCxtnYWqKmo1").update({
-                    
-                  }).then(() => {
-                    console.log("Yay we did it");
-                  }, (e) => {
-                    console.error(e);
-                  })
                 }
               }}/>
             </p>
-            <Label color="teal">{this.state.value1}</Label>
+            <Label color="teal" floated="right">{this.state.value1}</Label>
+            
           </Segment>
           </Grid.Column>
           </Grid>
-          
+          <Button fluid inverted="true"onClick={() => {
+            /*
+               1. Fetch previous statuses with db.collection.doc( blah blah ).get()
+               2. With that data, add a new entry to the array
+               3. Use db.collection.doc( blah blah ).update to set the value to the new array
+               */
+              this.db.collection("users").doc(this.user.uid).get().then((doc) => {
+               let data = doc.data();
+               data.statuses.push({
+                timestamp: new Date(),
+                status: this.state.value1
+               });
+               //TODO: Might wanna sort this list by timestamp if u want
+               //NVM cuz you're pushing them chronologically
+              this.db.collection("users").doc(this.user.uid).update({
+                statuses: data.statuses
+              }).then(() => {
+                console.log("Yay we did it");
+              }, (e) => {
+                console.error(e);
+              });
+            });
+          }}>Keep</Button>
           </header>
         </div>
       );
