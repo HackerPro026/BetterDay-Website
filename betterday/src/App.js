@@ -15,6 +15,9 @@ class App extends Component {
         <div>
           <Route path="/" exact component={Home} />
           <Route path="/auth" component={AuthPage} />
+          {/* <Route path="/good" component={GoodPage} />
+          <Route path="/bad" component={BadPage}/>
+          <Route path="/okay" component={OkayPage}/> */}
         </div>
       </Router>
     );

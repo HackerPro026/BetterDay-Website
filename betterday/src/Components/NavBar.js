@@ -49,14 +49,27 @@ export default class NavBar extends React.Component {
                             document.location.href = "/auth";
                         }
                     }
-                >
+                > 
                     <Icon name="sign in" />
                 </Menu.Item>
-                       
-
-                  
             }
+               <Menu.Item
+                name='home'
+                active={true}
+                onClick={
+                    () => {
+                        document.location.href = "/";
+                    }
+                }
+            
+            >
+                <img src="https://raw.githubusercontent.com/HackerPro026/BetterDay-Website/master/betterday/src/bettedaylogo.png" />
+            </Menu.Item>
+
+            
+            
             </Menu>
         );
     }
 }
+    

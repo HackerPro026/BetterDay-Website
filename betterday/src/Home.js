@@ -130,6 +130,7 @@ export default class Home extends React.Component {
             <Grid padded>
             <Grid.Column width={100} >
           <Segment inverted>
+          <h1>I see you've been doing {this.state.value1 < 3 ? "terribly" : (this.state.value1 < 7 ? "okay" : "great") }</h1>
            <h1 style={{textAlign: "center"}}>(Bad)1-10(Good)</h1>
             <p>
               <Slider style={{width:"100%"}}color="teal" inverted={true}
@@ -142,6 +143,7 @@ export default class Home extends React.Component {
                   this.setState({
                     value1:value
                   });
+                  
                 }
               }}/>
             </p>
@@ -150,6 +152,7 @@ export default class Home extends React.Component {
           </Segment>
           </Grid.Column>
           </Grid>
+          <a href = {this.state.value}>
           <Button fluid inverted="true"onClick={() => {
             /*
                1. Fetch previous statuses with db.collection.doc( blah blah ).get()
@@ -172,7 +175,8 @@ export default class Home extends React.Component {
                 console.error(e);
               });
             });
-          }}>Keep</Button>
+            // make a thingy to 
+          }}>Keep</Button></a>
           </header>
         </div>
       );
