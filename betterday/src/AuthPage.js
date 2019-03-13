@@ -29,12 +29,27 @@ export default class AuthPage extends React.Component{
   render(){
     return (
       <div>
-        <NavBar firebase ={firebase}/>
         <header className="App-header">
+        <NavBar firebase ={firebase}/>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        
+        <p style={{
+               display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center"
+              }}>
           <h1>
-            <p>
+            
               Sign In:
-            </p>
+            
           </h1>
           <Button size="massive" icon="google" labelPosition="left" content="Sign in with Google" color="google plus" onClick={() => {
             firebase.auth().onAuthStateChanged((user) => {
@@ -73,6 +88,7 @@ export default class AuthPage extends React.Component{
               }
             });
           }}/>
+          </p>
           </header>
       </div>
     );

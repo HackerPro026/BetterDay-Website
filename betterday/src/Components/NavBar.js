@@ -1,5 +1,6 @@
 import React from "react";
 import {Menu, Icon} from "semantic-ui-react";
+import betterdaylogo from "./betterdaylogo.png";
 
 export default class NavBar extends React.Component {
 
@@ -22,9 +23,12 @@ export default class NavBar extends React.Component {
                         }
                     }
                 >
-                    Home
+                    <img src={betterdaylogo} width ="120px" />
                 </Menu.Item>
-            {this.props.signedIn ? 
+            
+            <Menu.Menu position='right'>
+
+          {this.props.signedIn ? 
             <Menu.Item
                 active={true}
                 color="red"
@@ -37,7 +41,7 @@ export default class NavBar extends React.Component {
                     }
                 }
                 >
-                    <Icon name='sign out' />
+                    Logout:&ensp;<Icon name='sign out' />
                 </Menu.Item>
                 :
                 <Menu.Item
@@ -52,22 +56,9 @@ export default class NavBar extends React.Component {
                 > 
                     <Icon name="sign in" />
                 </Menu.Item>
+                
             }
-               <Menu.Item
-                name='home'
-                active={true}
-                onClick={
-                    () => {
-                        document.location.href = "/";
-                    }
-                }
-            
-            >
-                <img src="https://raw.githubusercontent.com/HackerPro026/BetterDay-Website/master/betterday/src/bettedaylogo.png" />
-            </Menu.Item>
-
-            
-            
+            </Menu.Menu>
             </Menu>
         );
     }

@@ -152,7 +152,7 @@ export default class Home extends React.Component {
           </Segment>
           </Grid.Column>
           </Grid>
-          <a href = {this.state.value}>
+          <a href = {this.state.value1 < 3 ? "BadPage" : (this.state.value1 < 7 ? "OkayPage" : "GoodPage") }>
           <Button fluid inverted="true"onClick={() => {
             /*
                1. Fetch previous statuses with db.collection.doc( blah blah ).get()

@@ -7,6 +7,9 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import Home from "./Home";
 import AuthPage from "./AuthPage";
+import GoodPage from "./GoodPage";
+import BadPage from "./BadPage";
+import OkayPage from "./OkayPage";
 
 class App extends Component {
   render() {
