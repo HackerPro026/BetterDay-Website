@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "firebase": "^5.8.0",
+    "firebase-tools": "^6.5.0",
     "prop-types": "^15.7.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
@@ -16,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "buildeploy": "react-scripts build && firebase deploy --only hosting"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -28,3 +30,4 @@
     "not op_mini all"
   ]
 }
+

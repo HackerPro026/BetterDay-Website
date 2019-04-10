@@ -81,7 +81,7 @@ export default class Home extends React.Component {
           {/* MAKE  DROPDOWN WITH 1-10 FOR YOUR DAY*/}
           <NavBar firebase={firebase} signedIn={true}/>
           <header className="App-header">
-            <br /> <br /> <br /> <br /> <br />
+          <div style={{paddingTop: "100px"}} />
              <p style={{
                display: "flex",
                 flexDirection: "column",
@@ -131,8 +131,8 @@ export default class Home extends React.Component {
             <Grid.Column width={100} >
           <Segment inverted>
           <h1>I see you've been doing {this.state.value1 < 3 ? "terribly" : (this.state.value1 < 7 ? "okay" : "great") }</h1>
-           <h1 style={{textAlign: "center"}}>(Bad)1-10(Good)</h1>
-            <p>
+           <h1 style={{textAlign: "left", float: "left"}}>Bad</h1>
+           <h1 style={{textAlign: "right", float: "right"}}>Good</h1>
               <Slider style={{width:"100%"}}color="teal" inverted={true}
                 settings={{
                 start: this.state.value1,
@@ -146,13 +146,13 @@ export default class Home extends React.Component {
                   
                 }
               }}/>
-            </p>
+            
             <Label color="teal" floated="right">{this.state.value1}</Label>
             
           </Segment>
           </Grid.Column>
           </Grid>
-          <a href = {this.state.value1 < 3 ? "BadPage" : (this.state.value1 < 7 ? "OkayPage" : "GoodPage") }>
+          
           <Button fluid inverted="true"onClick={() => {
             /*
                1. Fetch previous statuses with db.collection.doc( blah blah ).get()
@@ -171,12 +171,13 @@ export default class Home extends React.Component {
                 statuses: data.statuses
               }).then(() => {
                 console.log("Yay we did it");
+                window.location.href = this.state.value1 < 3 ? "bad" : (this.state.value1 < 7 ? "okay" : "good");
               }, (e) => {
                 console.error(e);
               });
             });
             // make a thingy to 
-          }}>Keep</Button></a>
+          }}>Keep</Button>
           </header>
         </div>
       );

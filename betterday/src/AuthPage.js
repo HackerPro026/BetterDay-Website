@@ -31,14 +31,7 @@ export default class AuthPage extends React.Component{
       <div>
         <header className="App-header">
         <NavBar firebase ={firebase}/>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <div style={{paddingTop: "100px"}} />
         
         <p style={{
                display: "flex",

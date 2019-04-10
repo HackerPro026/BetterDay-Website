@@ -9,5 +9,26 @@ import { Slider } from 'react-semantic-ui-range'
 import PropTypes from 'prop-types';
 
 export default class OkayPage extends React.Component {
-    
+    render(){
+        return(
+            <div>
+                <header className="App-header">
+                    <NavBar firebase ={firebase} signedIn={true}/>
+                    <div style={{paddingTop: "100px"}} />
+                    
+                    <p style={{
+                        display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "center"
+                        }}>
+                    <h1>
+                        
+                        OKAY PAGE
+                    </h1>
+                    </p>
+                </header>
+            </div>
+        )
+    }
 }

@@ -12,15 +12,8 @@ export default class GoodPage extends React.Component {
     render(){
         return(
         <header className="App-header">
-        <NavBar firebase ={firebase}/>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <NavBar firebase ={firebase} signedIn={true}/>
+        <div style={{paddingTop: "100px"}} />
         
         <p style={{
                display: "flex",
@@ -30,8 +23,7 @@ export default class GoodPage extends React.Component {
               }}>
           <h1>
             
-              Sign In:
-            
+              GOOD PAGE
           </h1>
           </p>
           </header>

@@ -54,7 +54,7 @@ export default class NavBar extends React.Component {
                         }
                     }
                 > 
-                    <Icon name="sign in" />
+                    Sign In:&ensp;<Icon name="sign in" />
                 </Menu.Item>
                 
             }
