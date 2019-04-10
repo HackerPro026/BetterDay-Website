@@ -31,7 +31,8 @@ export default class BadPage extends React.Component {
                         }}>
                     <h1>
                         
-                        BAD PAGE
+                        
+            I can see that you have been doing bad today.
                     </h1>
                     </p>
                 </header>

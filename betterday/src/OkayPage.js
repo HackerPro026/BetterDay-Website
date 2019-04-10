@@ -24,7 +24,8 @@ export default class OkayPage extends React.Component {
                         }}>
                     <h1>
                         
-                        OKAY PAGE
+
+            I can see that you have been doing okay today.
                     </h1>
                     </p>
                 </header>

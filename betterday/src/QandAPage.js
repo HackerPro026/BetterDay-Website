@@ -8,7 +8,7 @@ import NavBar from "./Components/NavBar";
 import { Slider } from 'react-semantic-ui-range'
 import PropTypes from 'prop-types';
 
-export default class GoodPage extends React.Component {
+export default class QandAPage extends React.Component {
     render(){
         return(
         <header className="App-header">
@@ -23,7 +23,7 @@ export default class GoodPage extends React.Component {
               }}>
           <h1>
             
-            I can see that you have been doing good today.
+              Q&amp;A PAGE
           </h1>
           </p>
           </header>

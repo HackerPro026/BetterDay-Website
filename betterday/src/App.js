@@ -10,6 +10,7 @@ import AuthPage from "./AuthPage";
 import GoodPage from "./GoodPage";
 import BadPage from "./BadPage";
 import OkayPage from "./OkayPage";
+import QandAPage from "./QandAPage";
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path="/good" component={GoodPage}/>
           <Route path="/bad" component={BadPage}/>
           <Route path="/okay" component={OkayPage}/>
+          <Route path="/Q&amp;A" component={QandAPage}/>
         </div>
       </Router>
     );

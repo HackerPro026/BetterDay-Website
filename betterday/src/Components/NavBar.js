@@ -25,9 +25,20 @@ export default class NavBar extends React.Component {
                 >
                     <img src={betterdaylogo} width ="120px" />
                 </Menu.Item>
-            
-            <Menu.Menu position='right'>
-
+                 
+            <Menu.Item
+                name='Q and A'
+                active={activeItem === ''}
+                onClick={
+                    () => {
+                        document.location.href = "/Q&A";
+                    }
+                }
+            >
+                Q&amp;A/FAQ
+            </Menu.Item>
+        <Menu.Menu position='right'>
+                             
           {this.props.signedIn ? 
             <Menu.Item
                 active={true}
@@ -56,6 +67,7 @@ export default class NavBar extends React.Component {
                 > 
                     Sign In:&ensp;<Icon name="sign in" />
                 </Menu.Item>
+                
                 
             }
             </Menu.Menu>

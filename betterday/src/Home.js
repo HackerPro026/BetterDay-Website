@@ -130,9 +130,12 @@ export default class Home extends React.Component {
             <Grid padded>
             <Grid.Column width={100} >
           <Segment inverted>
-          <h1>I see you've been doing {this.state.value1 < 3 ? "terribly" : (this.state.value1 < 7 ? "okay" : "great") }</h1>
-           <h1 style={{textAlign: "left", float: "left"}}>Bad</h1>
-           <h1 style={{textAlign: "right", float: "right"}}>Good</h1>
+          <h1>I see you've been doing {this.state.value1 < 3 ? "bad" : (this.state.value1 < 7 ? "okay" : "good") }</h1>
+          <h1 style={{textAlign: "left", float: "left"}}>Bad</h1>
+          <h1 style={{textAlign: "right", float: "right"}}>Good</h1>
+          <br />
+          <br />
+          <br />
               <Slider style={{width:"100%"}}color="teal" inverted={true}
                 settings={{
                 start: this.state.value1,
