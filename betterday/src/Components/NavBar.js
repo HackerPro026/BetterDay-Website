@@ -47,12 +47,14 @@ export default class NavBar extends React.Component {
                 onClick={
                     () => {
                         this.props.firebase.auth().signOut().then(() => {
-                            window.location.href = "";
+                            window.location.href = "/";
                         });
                     }
                 }
                 >
+                
                     Logout:&ensp;<Icon name='sign out' />
+                
                 </Menu.Item>
                 :
                 <Menu.Item

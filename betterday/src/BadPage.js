@@ -9,7 +9,23 @@ import { Slider } from 'react-semantic-ui-range'
 import PropTypes from 'prop-types';
 
 export default class BadPage extends React.Component {
+    constructor(props){
+            super(props);
+            if(!firebase.apps.length)
+                firebase.initializeApp(FIREBASE_CONFIG);
+                firebase.auth().onAuthStateChanged((user) => {
+                    if(user){
+                      this.user = user;
+                      this.db = firebase.firestore();
+                      this.setState({username: user.displayName, loading: false});
+                    }else{
+                      
+                      this.setState({loading: false});
+                    }
+                  });
+    }
     render(){
+        
         return(
             <div>
                 <header className="App-header">
