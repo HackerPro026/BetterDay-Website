@@ -9,8 +9,22 @@ import { Slider } from 'react-semantic-ui-range'
 import PropTypes from 'prop-types';
 
 export default class QandAPage extends React.Component {
+
+    constructor(props){
+      super(props);
+      this.state = {questionValue: ""}
+      if(!firebase.apps.length)
+      firebase.initializeApp(FIREBASE_CONFIG);
+      this.db = firebase.firestore();
+    }
     render(){
+
+      if(this.state.username == ""){
+
+        window.location.replace("/auth")
+      }else{
         return(
+          
         <header className="App-header">
         <NavBar firebase ={firebase} signedIn={true}/>
         <div style={{paddingTop: "100px"}} />
@@ -23,11 +37,25 @@ export default class QandAPage extends React.Component {
               }}>
           <h1>
             
-              Q&amp;A PAGE
+              Question:<Input size="medium" value={this.state.questionValue} onChange={(e, props) => {
+                this.setState({questionValue: props.value})
+              }} />
+              <Button onClick={() => {
+                //Do your firebase stuff
+                this.db.collection("Q&A").add({
+                  answer: "",
+                  question: this.state.questionValue,
+                  user:""
+                }).then(() => {
+                  console.log("IT WROKDHWFOE!");
+                });
+              }}>YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEET</Button>
           </h1>
           </p>
           </header>
+      
           
 )
+}
 }
 }
