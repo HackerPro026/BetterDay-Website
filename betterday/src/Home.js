@@ -17,27 +17,27 @@ export default class Home extends React.Component {
     if(!firebase.apps.length)
       firebase.initializeApp(FIREBASE_CONFIG);
     
-    firebase.auth().onAuthStateChanged((user) => {
-      if(user){
-        this.user = user;
-        this.db = firebase.firestore();
-        this.setState({username: user.displayName, loading: false});
-      }else{
-        
-        this.setState({loading: false});
-      }
-    });
-
-
-
-  }
-
-  handleValueChange(e, {value}){
-    this.setState({
-      value: value
-    })
-  }
-
+      firebase.auth().onAuthStateChanged((user) => {
+        if(user){
+          this.user = user;
+          this.db = firebase.firestore();
+          this.setState({username: user.displayName, loading: false});
+        }else{
+          
+          this.setState({loading: false});
+        }
+      });
+  
+  
+  
+    }
+  
+    handleValueChange(e, {value}){
+      this.setState({
+        value: value
+      })
+    }
+  
 
     render() {
 
@@ -130,7 +130,8 @@ export default class Home extends React.Component {
             <Grid padded>
             <Grid.Column width={100} >
           <Segment inverted>
-          <h1>I see you've been doing {this.state.value1 < 3 ? "bad" : (this.state.value1 < 7 ? "okay" : "good") }</h1>
+          <h1>I see you've been doing {this.state.value1 < 3 ? "bad" : (this.state.value1 < 7 ? "okay" : "well") }</h1>
+          <br />
           <h1 style={{textAlign: "left", float: "left"}}>Bad</h1>
           <h1 style={{textAlign: "right", float: "right"}}>Good</h1>
           <br />

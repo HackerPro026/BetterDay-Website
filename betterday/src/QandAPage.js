@@ -12,20 +12,37 @@ export default class QandAPage extends React.Component {
 
     constructor(props){
       super(props);
-      this.state = {questionValue: ""}
-      if(!firebase.apps.length)
-      firebase.initializeApp(FIREBASE_CONFIG);
-      this.db = firebase.firestore();
+      this.state = {questionValue: "",username: "",loading: true}
+
+       if(!firebase.apps.length){
+         firebase.initializeApp(FIREBASE_CONFIG);
+         this.db = firebase.firestore();
+       }
+    
+       firebase.auth().onAuthStateChanged((user) => {
+         if(user){
+           this.user = user;
+           this.db = firebase.firestore();
+           this.setState({username: user.displayName, loading: false});
+         }else{
+          
+          window.location.replace("/auth")
+         }
+       });
+  
+  
+  
     }
+  
+    
+    
+  
+    
     render(){
 
-      if(this.state.username == ""){
-
-        window.location.replace("/auth")
-      }else{
+      if(this.state.loading){
         return(
-          
-        <header className="App-header">
+          <header className="App-header">
         <NavBar firebase ={firebase} signedIn={true}/>
         <div style={{paddingTop: "100px"}} />
         
@@ -35,27 +52,76 @@ export default class QandAPage extends React.Component {
                 alignItems: "center",
                 justifyContent: "center"
               }}>
+            <h1>Loading...</h1>
+          </p>
+          </header>
+        )
+      }
+
+      if(this.state.username == ""){
+        return (
+          <header className="App-header">
+        <NavBar firebase ={firebase} signedIn={true}/>
+        <div style={{paddingTop: "100px"}} />
+        
+        <p style={{
+               display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center"
+              }}>
+            <h1>Redirecting now...</h1>
+          </p>
+          </header>
+        );
+        
+      }
+        return(
+          
+        <header className="App-header">
+        <NavBar firebase ={firebase} signedIn={true}/>
+        <div style={{paddingTop: "100px"}} />
+        
+        <div style={{
+               display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center"
+              }}>
           <h1>
             
-              Question:<Input size="medium" value={this.state.questionValue} onChange={(e, props) => {
+              Question:</h1><Input action={{
+                content:"Send",
+                labelPosition:"right",
+                icon: "send",
+                onClick: () => {
+                  this.db.collection("Q&A").add({
+                    answer: "",
+                    question: this.state.questionValue,
+                    user: this.user.uid
+                  }).then(() => {
+                    console.log("IT WROKDHWFOE!");
+                  });
+                }
+              }} placeholder="Write Question..." style={{display : "inline"}} size="medium" value={this.state.questionValue} onChange={(e, props) => {
                 this.setState({questionValue: props.value})
               }} />
-              <Button onClick={() => {
+              {/* <Button style={{display:"inline"}} onClick={() => {
                 //Do your firebase stuff
                 this.db.collection("Q&A").add({
                   answer: "",
                   question: this.state.questionValue,
-                  user:""
+                  user: this.user.uid
                 }).then(() => {
                   console.log("IT WROKDHWFOE!");
                 });
-              }}>YEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEET</Button>
-          </h1>
-          </p>
+              }}>Send Question</Button> */}
+          
+          </div>
           </header>
       
           
 )
-}
+
 }
 }
