@@ -79,15 +79,18 @@ export default class Home extends React.Component {
         
         <div>
           {/* MAKE  DROPDOWN WITH 1-10 FOR YOUR DAY*/}
-          <NavBar firebase={firebase} signedIn={true}/>
+          
           <header className="App-header">
+          <NavBar firebase={firebase} signedIn={true}/>
           <div style={{paddingTop: "100px"}} />
              <p style={{
                display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center"
-              }}>Hello! How has your day been, {this.state.username}?</p>
+              }}>
+              
+              Hello! How has your day been, {this.state.username}?</p>
              {/* <Button.Group>
               <Button positive 
               onClick={

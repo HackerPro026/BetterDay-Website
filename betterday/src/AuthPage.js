@@ -48,7 +48,9 @@ export default class AuthPage extends React.Component{
             firebase.auth().onAuthStateChanged((user) => {
               if (user) {
                 console.log("Great! You're already signed in!");
-                this.redirectToDest();
+                if(!this.inSIprocess){
+                  this.redirectToDest();
+                }
                 this.user = user;
               } else {
                 var provider = new firebase.auth.GoogleAuthProvider();
@@ -56,9 +58,10 @@ export default class AuthPage extends React.Component{
                   this.user = result.user;
                   
                   this.db = firebase.firestore();
-        
+                  this.inSIprocess = true;
                   this.db.collection("users").doc(this.user.uid).get().then((doc) => {
                     if(!doc.exists){
+                      console.log("We got here");
                       this.db.collection("users").doc(this.user.uid).set({
                         name: this.user.displayName,
                         statuses: []
