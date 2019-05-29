@@ -38,7 +38,7 @@ export default class BadPage extends React.Component {
                             justifyContent: "center"
                         }}>
                     <h1>
-                        Sample Table:
+                        History:
                         <Table called inverted color="light blue">
                             <Table.Header>
                                 <Table.Row>
