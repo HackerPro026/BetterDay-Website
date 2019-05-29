@@ -35,7 +35,7 @@ export default class NavBar extends React.Component {
                     }
                 }
             >
-                Q&amp;A/FAQ
+                Q&amp;A
             </Menu.Item>
             <Menu.Item
                 name="History"

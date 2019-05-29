@@ -40,6 +40,24 @@ export default class GoodPage extends React.Component {
           <h1>
             
             I can see that you have been doing good today.
+            <h1>
+            
+            Question:</h1><Input action={{
+              content:"Send",
+              labelPosition:"right",
+              icon: "send",
+              onClick: () => {
+                this.db.collection("Q&A").add({
+                  answer: "",
+                  question: this.state.questionValue,
+                  user: this.user.uid
+                }).then(() => {
+                  console.log("IT WROKDHWFOE!");
+                });
+              }
+            }} placeholder="Write Question..." style={{display : "inline"}} size="medium" value={this.state.questionValue} onChange={(e, props) => {
+              this.setState({questionValue: props.value})
+            }} />
           </h1>
           </p>
           </header>

@@ -38,31 +38,36 @@ export default class BadPage extends React.Component {
                             justifyContent: "center"
                         }}>
                     <h1>
-                        History:
-                        <Table called inverted color="light blue">
-                            <Table.Header>
-                                <Table.Row>
-                                    <Table.HeaderCell>Date</Table.HeaderCell>
-                                    <Table.HeaderCell>Date</Table.HeaderCell>
-                                    <Table.HeaderCell>Date</Table.HeaderCell>
-                                    </Table.Row>
-                                </Table.Header>
+                        <Table called inverted color="light blue" striped>
+                        <Table.Header>
+                            <Table.Row>
+                                <Table.HeaderCell colSpan='3'>History</Table.HeaderCell>
+                            </Table.Row>
+                        </Table.Header>
 
                                 <Table.Body>
                                 <Table.Row>
+                                    <Table.Cell>Date</Table.Cell>
                                     <Table.Cell>Status</Table.Cell>
-                                    <Table.Cell>Status</Table.Cell>
-                                    <Table.Cell>Status</Table.Cell>
+                                    <Table.Cell>Solution</Table.Cell>
                                 </Table.Row>
                                 <Table.Row>
+                                    <Table.Cell>Date</Table.Cell>{/*get user number*/}
                                     <Table.Cell>Status</Table.Cell>
-                                    <Table.Cell>Status</Table.Cell>
-                                    <Table.Cell>Status</Table.Cell>
+                                    <Table.Cell>Solution</Table.Cell>
                                 </Table.Row>
                                 <Table.Row>
+                                    <Table.Cell>Date</Table.Cell>
+                                    <Table.Cell>Status</Table.Cell>
+                                    <Table.Cell>Solution</Table.Cell>
+                                </Table.Row>
+                                <Table.Row>
+                                
+                               {   /*  <Table.Cell>Status</Table.Cell> 
                                     <Table.Cell>Status</Table.Cell>
                                     <Table.Cell>Status</Table.Cell>
-                                    <Table.Cell>Status</Table.Cell>
+                                    *///You probably won't need this cuz you only need date, status, and result so byebye
+                                }
                                 </Table.Row>
                                 </Table.Body>
                                 </Table>
