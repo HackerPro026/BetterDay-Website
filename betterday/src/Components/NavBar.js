@@ -37,7 +37,28 @@ export default class NavBar extends React.Component {
             >
                 Q&amp;A/FAQ
             </Menu.Item>
+            <Menu.Item
+                name="History"
+                active={activeItem === ''}
+                onClick={
+                    () => {
+                        document.location.href = "/hist"
+                    }
+                }
+            >
+            History
+            </Menu.Item>
+
         <Menu.Menu position='right'>
+                <Menu.Item
+                active={true}
+                color="violet"
+                name='callHelp'
+                href="/help"
+                >
+
+                Call Mental Health Agencies
+                </Menu.Item>
                              
           {this.props.signedIn ? 
             <Menu.Item

@@ -12,7 +12,7 @@ import BadPage from "./BadPage";
 import OkayPage from "./OkayPage";
 import QandAPage from "./QandAPage";
 import History from "./History";
-
+import HelpPage from "./HelpPage"
 class App extends Component {
   render() {
     return (
@@ -25,6 +25,7 @@ class App extends Component {
           <Route path="/okay" component={OkayPage}/>
           <Route path="/Q&amp;A" component={QandAPage}/>
           <Route path="/hist" component={History}/>
+          <Route path="/help" component={HelpPage}/>
         </div>
       </Router>
     );
