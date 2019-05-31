@@ -48,6 +48,17 @@ export default class NavBar extends React.Component {
             >
             History
             </Menu.Item>
+            <Menu.Item
+                name="Pricing"
+                active={activeItem === ''}
+                onClick={
+                    () => {
+                        document.location.href = "/price"
+                    }
+                }
+            >
+            Pricing
+            </Menu.Item>
 
         <Menu.Menu position='right'>
                 <Menu.Item

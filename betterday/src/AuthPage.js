@@ -27,6 +27,21 @@ export default class AuthPage extends React.Component{
   }
 
   render(){
+    if(this.state.username == ""){
+
+      return (
+        <div>
+          <NavBar firebase={firebase} signedIn={false}/>
+          <header className="App-header" style={{
+          display: "flex",
+           flexDirection: "column",
+           alignItems: "center",
+           justifyContent: "center"}}>
+            <h1>Please sign in to access our website.</h1>
+          </header>
+        </div>
+      );
+    }
     return (
       <div>
         <header className="App-header">

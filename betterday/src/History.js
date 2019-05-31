@@ -52,7 +52,7 @@ export default class BadPage extends React.Component {
                                     <Table.Cell>Solution</Table.Cell>
                                 </Table.Row>
                                 <Table.Row>
-                                    <Table.Cell>Date</Table.Cell>{/*get user number*/}
+                                    <Table.Cell>Date</Table.Cell>
                                     <Table.Cell>Status</Table.Cell>
                                     <Table.Cell>Solution</Table.Cell>
                                 </Table.Row>

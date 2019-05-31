@@ -13,6 +13,7 @@ import OkayPage from "./OkayPage";
 import QandAPage from "./QandAPage";
 import History from "./History";
 import HelpPage from "./HelpPage"
+import Pricing from "./Pricing"
 class App extends Component {
   render() {
     return (
@@ -26,6 +27,7 @@ class App extends Component {
           <Route path="/Q&amp;A" component={QandAPage}/>
           <Route path="/hist" component={History}/>
           <Route path="/help" component={HelpPage}/>
+          <Route path="/price" component={Pricing}/> 
         </div>
       </Router>
     );
